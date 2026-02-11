@@ -11,6 +11,25 @@ A full-stack boilerplate for building AI-powered resume tools. This repository p
 
 ---
 
+## Screenshots
+
+### Profile & Resume Preview
+Manage all resume sections on the left and see a live, print-optimized A4 preview on the right with one-click PDF export.
+
+![Profile page showing resume data entry forms alongside a live A4 resume preview](docs/images/profile-page.jpg)
+
+### AI Resume Tailor
+Paste a job description, click **Tailor My Resume**, and watch the agent log stream as each section (Summary, Experience, Skills, Projects, Education, Scoring) is optimized in sequence.
+
+![AI Resume Tailor page with job description input, optimization steps progress tracker, and agent log stream](docs/images/ai-tailor-page.jpg)
+
+### Cover Letter Generator
+Generate a personalized, single-page cover letter from the job description. The preview renders instantly alongside the generator form, ready to export as PDF.
+
+![Cover Letter Generator page with job description input and live cover letter preview panel](docs/images/cover-letter-page.jpg)
+
+---
+
 ## What This Boilerplate Provides
 
 ### Fully Implemented
