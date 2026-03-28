@@ -1,595 +1,331 @@
 import React from 'react';
+import screenshotProfile from '../assets/screenshots/profile-page.jpg';
+import screenshotTailor from '../assets/screenshots/ai-tailor-page.jpg';
+import screenshotCoverLetter from '../assets/screenshots/cover-letter-page.jpg';
 
 interface LandingPageProps {
   onNavigateToAuth: (mode: 'login' | 'register') => void;
 }
 
+const workflowSteps = [
+  {
+    id: '01',
+    title: 'Capture profile data once',
+    body: 'Manage experience, education, skills, projects, and certifications in a structured workspace with a live document preview.',
+  },
+  {
+    id: '02',
+    title: 'Generate tailored application assets',
+    body: 'Use the provided AI architecture to tailor resumes, score fit, draft letters, and extend the product with your own prompt layer.',
+  },
+  {
+    id: '03',
+    title: 'Ship a polished experience fast',
+    body: 'Auth, settings, export flows, and marketing surfaces are already in place so you can focus on your product differentiation.',
+  },
+];
+
+const platformHighlights = [
+  {
+    icon: 'fa-user-pen',
+    title: 'Profile-first document system',
+    body: 'The boilerplate includes a full profile editor, live preview, and print-ready document layout instead of bare form scaffolding.',
+  },
+  {
+    icon: 'fa-brain',
+    title: 'Multi-provider AI architecture',
+    body: 'Gemini, OpenAI, and OpenRouter support are organized behind a shared interface so you can swap or extend providers cleanly.',
+  },
+  {
+    icon: 'fa-layer-group',
+    title: 'Product-ready UI surfaces',
+    body: 'Resume tailoring, cover letters, proposals, chat, settings, and onboarding are already wired into one coherent frontend.',
+  },
+];
+
+const featureMatrix = [
+  'Supabase auth and database integration',
+  'Resume editor with live A4-style preview',
+  'Cover letter and proposal workspace shells',
+  'Settings UI for bring-your-own-key model configuration',
+  'Streaming chat surface and API client structure',
+  'Modern landing page and product storytelling out of the box',
+];
+
+const proofPoints = [
+  { label: 'Frontend', value: 'React 19, Vite, TypeScript, Tailwind' },
+  { label: 'Backend', value: 'FastAPI with Supabase-backed auth' },
+  { label: 'Use case', value: 'Resume products, AI job tools, white-label starters' },
+];
+
 const LandingPage: React.FC<LandingPageProps> = ({ onNavigateToAuth }) => {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-slate-200 z-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-2">
-              <div className="w-9 h-9 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-md">
-                R
-              </div>
-              <span className="text-xl font-bold text-slate-900">Resumyx</span>
-            </div>
+    <div className="min-h-screen bg-[#f4efe7] text-slate-900">
+      <div className="absolute inset-x-0 top-0 -z-10 h-[38rem] bg-[radial-gradient(circle_at_top_left,_rgba(245,158,11,0.22),_transparent_38%),radial-gradient(circle_at_top_right,_rgba(14,116,144,0.16),_transparent_34%),linear-gradient(180deg,_#fff8ef_0%,_#f4efe7_58%,_#f4efe7_100%)]" />
 
-            <div className="hidden md:flex items-center gap-8">
-              <a href="#features" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">Features</a>
-              <a href="#how-it-works" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">How It Works</a>
-              <a href="#pricing" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">Pricing</a>
+      <nav className="sticky top-0 z-50 border-b border-slate-900/8 bg-[#f4efe7]/88 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+          <a href="#top" className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-900 text-sm font-bold text-white shadow-lg shadow-slate-900/20">
+              R
             </div>
+            <div>
+              <div className="text-[11px] font-semibold uppercase tracking-[0.32em] text-slate-500">Resumyx</div>
+              <div className="text-sm font-semibold text-slate-900">AI resume app boilerplate</div>
+            </div>
+          </a>
 
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => onNavigateToAuth('login')}
-                className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors"
-              >
-                Log In
-              </button>
-              <button
-                onClick={() => onNavigateToAuth('register')}
-                className="px-5 py-2.5 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 active:scale-95"
-              >
-                Get Started Free
-              </button>
-            </div>
+          <div className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
+            <a href="#workflow" className="transition hover:text-slate-900">Workflow</a>
+            <a href="#platform" className="transition hover:text-slate-900">Platform</a>
+            <a href="#features" className="transition hover:text-slate-900">Features</a>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => onNavigateToAuth('login')}
+              className="rounded-full px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-white/70 hover:text-slate-900"
+            >
+              Log In
+            </button>
+            <button
+              onClick={() => onNavigateToAuth('register')}
+              className="rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-slate-900/20 transition hover:-translate-y-0.5 hover:bg-black"
+            >
+              Explore Starter
+            </button>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium mb-6 border border-blue-100">
-              <i className="fas fa-sparkles"></i>
-              <span>AI-Powered Resume Tailoring</span>
-            </div>
-
-            <h1 className="text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
-              Land Your Dream Job with
-              <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent"> AI-Optimized </span>
-              Resumes
-            </h1>
-
-            <p className="text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Transform your resume in seconds with advanced AI. Tailor your experience for any job description, boost your ATS score, and stand out from the competition.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-              <button
-                onClick={() => onNavigateToAuth('register')}
-                className="px-8 py-4 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 active:scale-95 flex items-center gap-2"
-              >
-                <span>Start Tailoring Free</span>
-                <i className="fas fa-arrow-right"></i>
-              </button>
-              <a
-                href="#how-it-works"
-                className="px-8 py-4 text-base font-semibold text-slate-700 bg-white hover:bg-slate-50 rounded-xl border-2 border-slate-200 transition-all duration-200 flex items-center gap-2"
-              >
-                <i className="fas fa-play-circle"></i>
-                <span>See How It Works</span>
-              </a>
-            </div>
-
-            <div className="flex items-center justify-center gap-8 text-sm text-slate-500">
-              <div className="flex items-center gap-2">
-                <i className="fas fa-check-circle text-emerald-500"></i>
-                <span>No credit card required</span>
+      <main id="top">
+        <section className="px-6 pb-20 pt-14 lg:px-10 lg:pb-24 lg:pt-20">
+          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 rounded-full border border-amber-300/60 bg-white/80 px-4 py-2 text-sm font-medium text-amber-800 shadow-sm shadow-amber-950/5">
+                <i className="fas fa-sparkles text-[12px]"></i>
+                Presentation-ready starter for AI resume products
               </div>
-              <div className="flex items-center gap-2">
-                <i className="fas fa-check-circle text-emerald-500"></i>
-                <span>Free forever plan</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <i className="fas fa-check-circle text-emerald-500"></i>
-                <span>Multi-AI support</span>
-              </div>
-            </div>
-          </div>
 
-          {/* Preview Image/Screenshot Placeholder */}
-          <div className="mt-16 max-w-6xl mx-auto">
-            <div className="rounded-2xl shadow-2xl border border-slate-200 overflow-hidden bg-white">
-              <div className="bg-slate-100 px-4 py-3 border-b border-slate-200 flex items-center gap-2">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                  <div className="w-3 h-3 rounded-full bg-emerald-400"></div>
-                </div>
-                <div className="flex-1 text-center text-xs text-slate-500 font-medium">resumyx.app</div>
-              </div>
-              <div className="aspect-video bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center">
-                <div className="text-center space-y-4 p-8">
-                  <i className="fas fa-wand-magic-sparkles text-6xl text-blue-600"></i>
-                  <p className="text-slate-600 text-lg font-medium">AI Resume Builder Interface</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+              <h1 className="mt-6 max-w-3xl text-5xl font-semibold leading-[0.96] tracking-[-0.05em] text-slate-950 sm:text-6xl lg:text-7xl">
+                Launch the polished version first, then add your secret sauce.
+              </h1>
 
-      {/* Features Section */}
-      <section id="features" className="py-20 px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">Powerful Features for Job Seekers</h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Everything you need to create a winning resume that gets past ATS systems and impresses recruiters
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Feature 1 */}
-            <div className="p-6 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-4">
-                <i className="fas fa-wand-magic-sparkles text-xl"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">AI-Powered Tailoring</h3>
-              <p className="text-slate-600">
-                Automatically optimize your resume for any job description using advanced AI. Highlight the most relevant skills and experiences.
+              <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600 sm:text-xl">
+                Resumyx Public is a full-stack starting point for resume builders and application tools, with auth, profile editing, document previews, AI provider wiring, and a modern landing experience already in place.
               </p>
-            </div>
 
-            {/* Feature 2 */}
-            <div className="p-6 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
-              <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center text-emerald-600 mb-4">
-                <i className="fas fa-chart-line text-xl"></i>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <button
+                  onClick={() => onNavigateToAuth('register')}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-7 py-4 text-base font-semibold text-white shadow-xl shadow-slate-900/20 transition hover:-translate-y-0.5 hover:bg-black"
+                >
+                  Start with the boilerplate
+                  <i className="fas fa-arrow-right text-sm"></i>
+                </button>
+                <a
+                  href="#platform"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white/85 px-7 py-4 text-base font-semibold text-slate-800 transition hover:border-slate-400 hover:bg-white"
+                >
+                  See the platform
+                  <i className="fas fa-layer-group text-sm"></i>
+                </a>
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">ATS Score Analysis</h3>
-              <p className="text-slate-600">
-                Get detailed ATS compatibility scores with breakdowns for keywords, formatting, experience relevance, and skills alignment.
-              </p>
-            </div>
 
-            {/* Feature 3 */}
-            <div className="p-6 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 mb-4">
-                <i className="fas fa-filter text-xl"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">Smart Skills Filtering</h3>
-              <p className="text-slate-600">
-                AI selects only the most relevant skills from your profile that match the job requirements, removing irrelevant ones.
-              </p>
-            </div>
-
-            {/* Feature 4 */}
-            <div className="p-6 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
-              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 mb-4">
-                <i className="fas fa-bolt text-xl"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">Parallel Processing</h3>
-              <p className="text-slate-600">
-                Lightning-fast resume generation with parallel AI processing. Get results in 3-5 seconds instead of 10-15 seconds.
-              </p>
-            </div>
-
-            {/* Feature 5 */}
-            <div className="p-6 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
-              <div className="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center text-pink-600 mb-4">
-                <i className="fas fa-robot text-xl"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">Multi-AI Provider Support</h3>
-              <p className="text-slate-600">
-                Choose from Gemini, OpenAI, or OpenRouter. Use your own API keys for unlimited generations with any provider.
-              </p>
-            </div>
-
-            {/* Feature 6 */}
-            <div className="p-6 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
-              <div className="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center text-cyan-600 mb-4">
-                <i className="fas fa-file-pdf text-xl"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">Perfect PDF Export</h3>
-              <p className="text-slate-600">
-                Generate high-quality, ATS-friendly PDFs with perfect text rendering and searchable content using native browser technology.
-              </p>
-            </div>
-
-            {/* Feature 7 */}
-            <div className="p-6 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
-              <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-600 mb-4">
-                <i className="fas fa-file-lines text-xl"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">AI Cover Letters</h3>
-              <p className="text-slate-600">
-                Generate personalized, compelling cover letters tailored to each job application in seconds with AI assistance.
-              </p>
-            </div>
-
-            {/* Feature 8 */}
-            <div className="p-6 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
-              <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center text-teal-600 mb-4">
-                <i className="fas fa-layer-group text-xl"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">Batch Processing</h3>
-              <p className="text-slate-600">
-                Tailor your resume for multiple job descriptions simultaneously. Process up to 5 jobs in parallel to save time.
-              </p>
-            </div>
-
-            {/* Feature 9 */}
-            <div className="p-6 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all duration-200">
-              <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center text-rose-600 mb-4">
-                <i className="fas fa-shield-check text-xl"></i>
-              </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">Hallucination Detection</h3>
-              <p className="text-slate-600">
-                Built-in verification ensures AI never fabricates information. Your achievements remain truthful and verifiable.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section id="how-it-works" className="py-20 px-6 lg:px-8 bg-slate-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">How It Works</h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Transform your resume in three simple steps
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {/* Step 1 */}
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold mb-6 mx-auto shadow-lg">
-                1
-              </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-3">Create Your Profile</h3>
-              <p className="text-slate-600">
-                Add your work experience, skills, education, and projects. Your data is securely stored and synced across devices.
-              </p>
-            </div>
-
-            {/* Step 2 */}
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold mb-6 mx-auto shadow-lg">
-                2
-              </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-3">Paste Job Description</h3>
-              <p className="text-slate-600">
-                Copy and paste any job description you're interested in. Our AI analyzes the requirements and keywords instantly.
-              </p>
-            </div>
-
-            {/* Step 3 */}
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-white text-2xl font-bold mb-6 mx-auto shadow-lg">
-                3
-              </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-3">Get Tailored Resume</h3>
-              <p className="text-slate-600">
-                AI optimizes your resume in seconds. Download as PDF and apply with confidence knowing your resume is perfectly matched.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-12 text-center">
-            <button
-              onClick={() => onNavigateToAuth('register')}
-              className="px-8 py-4 text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 active:scale-95 inline-flex items-center gap-2"
-            >
-              <span>Start Creating Now</span>
-              <i className="fas fa-arrow-right"></i>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-20 px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-slate-900 mb-6">Why Choose Resumyx?</h2>
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center text-emerald-600 shrink-0">
-                    <i className="fas fa-rocket"></i>
+              <div className="mt-10 grid gap-4 border-t border-slate-900/10 pt-8 sm:grid-cols-3">
+                {proofPoints.map((point) => (
+                  <div key={point.label}>
+                    <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-500">{point.label}</div>
+                    <div className="mt-2 text-sm font-medium leading-6 text-slate-800">{point.value}</div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-slate-900 mb-1">Save Hours of Work</h3>
-                    <p className="text-slate-600">Stop manually tweaking your resume for each job. AI does it in seconds with better results.</p>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-0 translate-x-6 translate-y-6 rounded-[2rem] bg-slate-900/8 blur-3xl" />
+              <div className="relative overflow-hidden rounded-[2rem] border border-slate-900/10 bg-white shadow-[0_30px_90px_rgba(15,23,42,0.16)]">
+                <div className="flex items-center gap-2 border-b border-slate-200 bg-[#fbfaf7] px-5 py-4">
+                  <div className="flex gap-2">
+                    <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                  </div>
+                  <div className="ml-3 rounded-full border border-slate-200 bg-white px-3 py-1 text-[11px] font-medium text-slate-500">
+                    resumyx-public
                   </div>
                 </div>
 
-                <div className="flex gap-4">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 shrink-0">
-                    <i className="fas fa-bullseye"></i>
+                <div className="grid gap-4 bg-[#fbfaf7] p-4 lg:grid-cols-[1.2fr_0.8fr]">
+                  <div className="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white">
+                    <img
+                      src={screenshotTailor}
+                      alt="AI resume tailoring workspace"
+                      className="h-full w-full object-cover object-top"
+                    />
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-slate-900 mb-1">Beat ATS Systems</h3>
-                    <p className="text-slate-600">Our AI knows what ATS systems look for. Get detailed scores and feedback to ensure your resume gets seen.</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 shrink-0">
-                    <i className="fas fa-brain"></i>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-slate-900 mb-1">Smart Keyword Matching</h3>
-                    <p className="text-slate-600">AI extracts key requirements from job postings and highlights your most relevant experiences automatically.</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 shrink-0">
-                    <i className="fas fa-lock"></i>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-slate-900 mb-1">Your Data, Your Control</h3>
-                    <p className="text-slate-600">Use your own AI API keys. Your resume data is encrypted and never used to train AI models.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-12 border border-slate-200">
-              <div className="space-y-8">
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white">
-                      <i className="fas fa-star"></i>
+                  <div className="grid gap-4">
+                    <div className="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white">
+                      <img
+                        src={screenshotProfile}
+                        alt="Resume profile workspace"
+                        className="h-full w-full object-cover object-top"
+                      />
                     </div>
+                    <div className="rounded-[1.5rem] border border-slate-200 bg-slate-900 px-5 py-5 text-white">
+                      <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-400">Built for extension</div>
+                      <div className="mt-3 text-xl font-semibold leading-7">
+                        Swap prompts, wire your own ranking logic, and keep the polished shell.
+                      </div>
+                      <div className="mt-4 text-sm leading-6 text-slate-300">
+                        The repo is meant to showcase the product surface and architecture, while your differentiated logic can stay private.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="workflow" className="px-6 py-20 lg:px-10 lg:py-24">
+          <div className="mx-auto max-w-7xl rounded-[2rem] border border-slate-900/10 bg-white/78 p-8 shadow-sm backdrop-blur lg:p-12">
+            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+              <div>
+                <div className="text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-500">Workflow</div>
+                <h2 className="mt-4 max-w-md text-4xl font-semibold leading-tight tracking-[-0.04em] text-slate-950">
+                  A real product shell, not just a stack diagram and a login screen.
+                </h2>
+                <p className="mt-5 max-w-md text-base leading-7 text-slate-600">
+                  This public version is designed to demo the product well, onboard contributors faster, and give you a clean base for private extensions.
+                </p>
+              </div>
+
+              <div className="grid gap-5">
+                {workflowSteps.map((step) => (
+                  <div key={step.id} className="grid gap-4 rounded-[1.6rem] border border-slate-200/90 bg-[#fcfbf8] p-6 md:grid-cols-[72px_1fr] md:items-start">
+                    <div className="text-3xl font-semibold tracking-[-0.05em] text-slate-300">{step.id}</div>
                     <div>
-                      <div className="font-semibold text-slate-900">85% → 94%</div>
-                      <div className="text-sm text-slate-600">ATS Score Improvement</div>
+                      <h3 className="text-xl font-semibold text-slate-900">{step.title}</h3>
+                      <p className="mt-2 text-base leading-7 text-slate-600">{step.body}</p>
                     </div>
                   </div>
-                  <p className="text-sm text-slate-600">Average score increase after using Resumyx AI tailoring</p>
-                </div>
-
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center text-white">
-                      <i className="fas fa-clock"></i>
-                    </div>
-                    <div>
-                      <div className="font-semibold text-slate-900">3-5 seconds</div>
-                      <div className="text-sm text-slate-600">Processing Time</div>
-                    </div>
-                  </div>
-                  <p className="text-sm text-slate-600">Lightning-fast results with parallel AI processing</p>
-                </div>
-
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white">
-                      <i className="fas fa-infinity"></i>
-                    </div>
-                    <div>
-                      <div className="font-semibold text-slate-900">Unlimited</div>
-                      <div className="text-sm text-slate-600">Resume Generations</div>
-                    </div>
-                  </div>
-                  <p className="text-sm text-slate-600">No limits when you use your own API keys</p>
-                </div>
+                ))}
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Pricing Section */}
-      <section id="pricing" className="py-20 px-6 lg:px-8 bg-slate-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">Simple, Transparent Pricing</h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Choose the plan that works best for you. No hidden fees.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Free Plan */}
-            <div className="bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-blue-300 transition-all duration-200">
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-slate-900 mb-2">Free</h3>
-                <div className="text-4xl font-bold text-slate-900 mb-2">$0</div>
-                <p className="text-slate-600">Perfect to get started</p>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-3">
-                  <i className="fas fa-check text-emerald-500 mt-1"></i>
-                  <span className="text-slate-600">3 AI resume generations/month</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <i className="fas fa-check text-emerald-500 mt-1"></i>
-                  <span className="text-slate-600">Basic ATS scoring</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <i className="fas fa-check text-emerald-500 mt-1"></i>
-                  <span className="text-slate-600">PDF export</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <i className="fas fa-check text-emerald-500 mt-1"></i>
-                  <span className="text-slate-600">1 AI cover letter/month</span>
-                </li>
-              </ul>
-              <button
-                onClick={() => onNavigateToAuth('register')}
-                className="w-full py-3 text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-all duration-200"
-              >
-                Get Started
-              </button>
-            </div>
-
-            {/* Pro Plan */}
-            <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-8 border-2 border-blue-500 shadow-xl transform scale-105">
-              <div className="absolute top-0 right-8 -translate-y-1/2">
-                <div className="bg-emerald-500 text-white px-4 py-1 rounded-full text-xs font-bold">
-                  RECOMMENDED
-                </div>
-              </div>
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-white mb-2">Bring Your Own Key</h3>
-                <div className="text-4xl font-bold text-white mb-2">$0</div>
-                <p className="text-blue-100">Use your own AI API keys</p>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-3">
-                  <i className="fas fa-check text-emerald-300 mt-1"></i>
-                  <span className="text-white">Unlimited AI generations</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <i className="fas fa-check text-emerald-300 mt-1"></i>
-                  <span className="text-white">Advanced ATS scoring with breakdown</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <i className="fas fa-check text-emerald-300 mt-1"></i>
-                  <span className="text-white">Batch processing (5 jobs)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <i className="fas fa-check text-emerald-300 mt-1"></i>
-                  <span className="text-white">Unlimited cover letters</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <i className="fas fa-check text-emerald-300 mt-1"></i>
-                  <span className="text-white">Choose any AI provider</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <i className="fas fa-check text-emerald-300 mt-1"></i>
-                  <span className="text-white">Priority processing</span>
-                </li>
-              </ul>
-              <button
-                onClick={() => onNavigateToAuth('register')}
-                className="w-full py-3 text-sm font-semibold text-blue-600 bg-white hover:bg-blue-50 rounded-lg transition-all duration-200 shadow-md"
-              >
-                Get Started
-              </button>
-            </div>
-
-            {/* Enterprise Plan */}
-            <div className="bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-blue-300 transition-all duration-200">
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-slate-900 mb-2">Enterprise</h3>
-                <div className="text-4xl font-bold text-slate-900 mb-2">Custom</div>
-                <p className="text-slate-600">For teams and organizations</p>
-              </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-3">
-                  <i className="fas fa-check text-emerald-500 mt-1"></i>
-                  <span className="text-slate-600">Everything in BYOK</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <i className="fas fa-check text-emerald-500 mt-1"></i>
-                  <span className="text-slate-600">Team collaboration</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <i className="fas fa-check text-emerald-500 mt-1"></i>
-                  <span className="text-slate-600">Custom branding</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <i className="fas fa-check text-emerald-500 mt-1"></i>
-                  <span className="text-slate-600">Dedicated support</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <i className="fas fa-check text-emerald-500 mt-1"></i>
-                  <span className="text-slate-600">Custom integrations</span>
-                </li>
-              </ul>
-              <button className="w-full py-3 text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-all duration-200">
-                Contact Sales
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 px-6 lg:px-8 bg-gradient-to-br from-blue-600 to-blue-700">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Ready to Land Your Dream Job?
-          </h2>
-          <p className="text-xl text-blue-100 mb-10">
-            Join thousands of job seekers who are getting more interviews with AI-optimized resumes
-          </p>
-          <button
-            onClick={() => onNavigateToAuth('register')}
-            className="px-10 py-5 text-lg font-semibold text-blue-600 bg-white hover:bg-blue-50 rounded-xl shadow-2xl hover:shadow-3xl transition-all duration-200 active:scale-95 inline-flex items-center gap-3"
-          >
-            <span>Start Creating Your Resume</span>
-            <i className="fas fa-arrow-right"></i>
-          </button>
-          <p className="mt-6 text-blue-100 text-sm">
-            No credit card required • Free forever plan • Get started in 2 minutes
-          </p>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-12 px-6 lg:px-8 bg-slate-900 text-slate-400">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">
-                  R
-                </div>
-                <span className="text-lg font-bold text-white">Resumyx</span>
-              </div>
-              <p className="text-sm">
-                AI-powered resume builder that helps you land your dream job faster.
+        <section id="platform" className="px-6 py-20 lg:px-10 lg:py-24">
+          <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.82fr_1.18fr]">
+            <div className="rounded-[2rem] bg-slate-900 px-8 py-10 text-white shadow-[0_30px_70px_rgba(15,23,42,0.22)] lg:px-10">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-slate-400">Public-safe positioning</div>
+              <h2 className="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em]">
+                Show the architecture and experience without shipping the proprietary layer.
+              </h2>
+              <p className="mt-5 text-base leading-7 text-slate-300">
+                The public repo now presents the product as a polished AI resume starter. It highlights the extensible surface area without revealing private prompt strategy or custom monitoring flows.
               </p>
             </div>
 
-            <div>
-              <h4 className="text-white font-semibold mb-4">Product</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
-                <li><a href="#pricing" className="hover:text-white transition-colors">Pricing</a></li>
-                <li><a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-white font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-white font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Cookie Policy</a></li>
-              </ul>
+            <div className="grid gap-6">
+              {platformHighlights.map((highlight) => (
+                <div key={highlight.title} className="rounded-[1.8rem] border border-slate-900/10 bg-white p-7 shadow-sm">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-amber-700">
+                    <i className={`fas ${highlight.icon} text-lg`}></i>
+                  </div>
+                  <h3 className="mt-5 text-2xl font-semibold tracking-[-0.03em] text-slate-950">{highlight.title}</h3>
+                  <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">{highlight.body}</p>
+                </div>
+              ))}
             </div>
           </div>
+        </section>
 
-          <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm">© 2026 Resumyx. All rights reserved.</p>
-            <div className="flex items-center gap-6">
-              <a href="#" className="hover:text-white transition-colors">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                <i className="fab fa-linkedin"></i>
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                <i className="fab fa-github"></i>
-              </a>
+        <section id="features" className="px-6 py-20 lg:px-10 lg:py-24">
+          <div className="mx-auto max-w-7xl">
+            <div className="max-w-2xl">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-500">Included surfaces</div>
+              <h2 className="mt-4 text-4xl font-semibold leading-tight tracking-[-0.04em] text-slate-950">
+                Enough product already exists that the repo feels real on day one.
+              </h2>
+            </div>
+
+            <div className="mt-8 grid gap-3">
+              {featureMatrix.map((item) => (
+                <div key={item} className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-white/85 px-4 py-4">
+                  <i className="fas fa-check-circle mt-1 text-sm text-emerald-600"></i>
+                  <span className="text-sm leading-6 text-slate-700">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10 grid gap-6 lg:grid-cols-3">
+              <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm">
+                <img src={screenshotProfile} alt="Resume profile page" className="h-72 w-full object-cover object-top" />
+                <div className="p-6">
+                  <div className="text-sm font-semibold text-slate-900">Profile workspace</div>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    Forms, live preview, and print-ready structure make the demo feel complete before you touch the prompts.
+                  </p>
+                </div>
+              </div>
+
+              <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm">
+                <img src={screenshotTailor} alt="Tailoring page" className="h-72 w-full object-cover object-top" />
+                <div className="p-6">
+                  <div className="text-sm font-semibold text-slate-900">AI tailoring shell</div>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    Streaming activity, job-description input, and provider structure give you a clean place to insert your own logic.
+                  </p>
+                </div>
+              </div>
+
+              <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm">
+                <img src={screenshotCoverLetter} alt="Cover letter page" className="h-72 w-full object-cover object-top" />
+                <div className="p-6">
+                  <div className="text-sm font-semibold text-slate-900">Companion generators</div>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    Cover-letter and proposal surfaces help the repo present as a fuller product instead of a narrow single feature.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </footer>
+        </section>
+
+        <section className="px-6 pb-24 pt-10 lg:px-10">
+          <div className="mx-auto max-w-7xl rounded-[2.2rem] bg-slate-900 px-8 py-12 text-white shadow-[0_32px_90px_rgba(15,23,42,0.26)] lg:px-12">
+            <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+              <div>
+                <div className="text-[11px] font-semibold uppercase tracking-[0.3em] text-slate-400">Ready to fork</div>
+                <h2 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight tracking-[-0.04em]">
+                  Present the product publicly, keep the moat privately, and still ship from the same foundation.
+                </h2>
+                <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300">
+                  The public repo now matches the newer product story and visual quality while staying safe to share as a template or portfolio piece.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <button
+                  onClick={() => onNavigateToAuth('register')}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-4 text-base font-semibold text-slate-900 transition hover:-translate-y-0.5 hover:bg-slate-100"
+                >
+                  Open starter
+                  <i className="fas fa-arrow-right text-sm"></i>
+                </button>
+                <button
+                  onClick={() => onNavigateToAuth('login')}
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-4 text-base font-semibold text-white transition hover:bg-white/8"
+                >
+                  View demo flow
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   );
 };
