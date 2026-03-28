@@ -1,12 +1,5 @@
 # Resumyx Public
 
-![React](https://img.shields.io/badge/React-19-blue?logo=react)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.115-green?logo=fastapi)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue?logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-06B6D4?logo=tailwindcss)
-![Supabase](https://img.shields.io/badge/Supabase-Auth%20%2B%20DB-3ECF8E?logo=supabase)
-![License](https://img.shields.io/badge/license-MIT-green)
-
 Resumyx Public is a full-stack starter for AI-powered resume products. It gives you the polished product shell: authentication, resume profile management, live document previews, multi-provider AI wiring, chat surfaces, settings, and a landing page that already looks like a real product.
 
 The goal of this repository is simple:
